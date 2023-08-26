@@ -1,23 +1,25 @@
 package config;
 
-import main.Parrot;
-import main.Person;
+import beans.Parrot;
+import beans.Person;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+@ComponentScan(basePackages = "beans")
 public class ProjectConfig {
     @Bean
-    Person person(){
-        var p = new Person();
-        p.setName("Koko");
+    public Parrot parrot1(){
+        Parrot p = new Parrot();
+        p.setName("Naomi");
         return p;
     }
     @Bean
-    Parrot parrot(){
-        Parrot p1 = new Parrot();
-        p1.setName("Elsa");
-        return p1;
+    public Parrot parrot2(){
+        Parrot p = new Parrot();
+        p.setName("Naomi");
+        return p;
     }
-
 }

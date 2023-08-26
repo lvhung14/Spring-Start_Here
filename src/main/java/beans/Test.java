@@ -1,4 +1,4 @@
-package main;
+package beans;
 
 public class Test {
     int x;

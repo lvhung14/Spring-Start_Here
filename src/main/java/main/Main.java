@@ -1,5 +1,6 @@
 package main;
 
+import beans.Person;
 import config.ProjectConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -8,11 +9,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class Main {
     public static void main(String[] args) {
         var context = new AnnotationConfigApplicationContext(ProjectConfig.class);
-        Parrot p = context.getBean(Parrot.class);
-        Person p1 = context.getBean(Person.class);
-
-        System.out.println("Person's Name: " + p1.getName());
-        System.out.println("Parrot's name: " + p.getName());
-        System.out.println("Person's Parrot: " + p1.getParrot());
+        Person p = context.getBean(Person.class);
+        p.setName("Koko");
+        System.out.println(p.getName());
+        System.out.println(p.getParrot());
     }
 }
